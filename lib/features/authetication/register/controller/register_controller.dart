@@ -1,5 +1,7 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:convert_coin/core/generic/resource.dart';
 import 'package:dio/dio.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:mobx/mobx.dart';
 
 import '../../../../core/models/user_model.dart';
@@ -104,4 +106,25 @@ abstract class _RegisterControllerBase with Store {
     isLastNameValid &&
     isPasswordValid &&
     isPasswordConfirmationValid;
+
+  @action 
+  Future<void> saveCredentials() async {
+    final firestore = FirebaseFirestore.instance;
+    var currentUser = FirebaseAuth.instance.currentUser;
+    if(currentUser?.uid != null) {
+      await firestore.collection('users').doc(currentUser!.uid).set({
+        'first_name': firstName,
+        'last_name' : lastName,
+        'password' : password,
+        'email' : email,
+      });
+    }
+  }
+
+  @action 
+  Future singUp() async {
+    await FirebaseAuth.instance.createUserWithEmailAndPassword(
+      email: email.toString(), password: password.toString()
+    );
+  }
  }

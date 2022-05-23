@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "388801923437",
+    "project_id": "convert-coin-df5d8",
+    "storage_bucket": "convert-coin-df5d8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:388801923437:android:fca4b9797757e40b45f264",
+        "android_client_info": {
+          "package_name": "com.example.convert_coin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "388801923437-narchhj4413brgmu09cejktgrokmhbe1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB5UI1s7uteULBwMCBJhEZOoVZyBLeGtpA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "388801923437-narchhj4413brgmu09cejktgrokmhbe1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
