@@ -1,4 +1,5 @@
-import 'package:convert_coin/features/authetication/login/view/login_view.dart';
+import 'package:convert_coin/features/authetication/auth_page/auth_page.dart';
+import 'package:convert_coin/features/authetication/login/view/view_login.dart';
 import 'package:convert_coin/features/authetication/register/view/view_register.dart';
 import 'package:flutter/material.dart';
 
@@ -11,10 +12,10 @@ class AppWidget extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-      
+        scaffoldBackgroundColor: const Color(0xFFFFEBC5),
         primarySwatch: Colors.blue,
       ),
-      home: const LoginView(),
+      home: const AuthPage(),
     );
   }
 }

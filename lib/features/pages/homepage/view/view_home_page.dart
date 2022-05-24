@@ -1,12 +1,12 @@
-import 'package:convert_coin/features/authetication/register/view/pages/convert/view/convert_page.dart';
-import 'package:convert_coin/features/authetication/register/view/pages/historic/view/historic.dart';
-import 'package:convert_coin/features/authetication/register/view/pages/homepage/controller/home_page_controller.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import '../../convert/view/view_convert_page.dart';
+import '../../historic/view/view_historic.dart';
+import '../controller/home_page_controller.dart';
 
-class HomePageWidget extends StatelessWidget {
-  HomePageWidget({Key? key}) : super(key: key);
+class ViewHomePage extends StatelessWidget {
+  ViewHomePage({Key? key}) : super(key: key);
   final _controller = HomePageController();
   final _pageController = PageController(initialPage: 0, keepPage: true);
 
@@ -14,7 +14,6 @@ class HomePageWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         home: Scaffold(
-      backgroundColor: Color(0xFFFFEBC5),
       body: Observer(builder: (_) {
         return SafeArea(
           child: PageView(

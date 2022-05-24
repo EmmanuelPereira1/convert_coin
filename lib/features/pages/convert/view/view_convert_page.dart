@@ -1,16 +1,17 @@
-import 'package:convert_coin/features/authetication/register/view/pages/convert/controller/convert_page_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class ConvertPageWidget extends StatefulWidget {
-  ConvertPageWidget({Key? key}) : super(key: key);
+import '../controller/convert_page_controller.dart';
+
+class ViewConvertPage extends StatefulWidget {
+  ViewConvertPage({Key? key}) : super(key: key);
 
   @override
-  State<ConvertPageWidget> createState() => _ConvertPageWidgetState();
+  State<ViewConvertPage> createState() => _ViewConvertPageState();
 }
 
-class _ConvertPageWidgetState extends State<ConvertPageWidget> {
+class _ViewConvertPageState extends State<ViewConvertPage> {
   final _controller = ConvertPageController();
 
   @override
