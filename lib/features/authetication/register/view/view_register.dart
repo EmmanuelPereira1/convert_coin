@@ -1,4 +1,5 @@
 import 'package:convert_coin/core/generic/resource.dart';
+import 'package:convert_coin/features/authetication/auth_page/auth_page.dart';
 import 'package:convert_coin/features/authetication/register/controller/register_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
@@ -125,7 +126,7 @@ class ViewRegister extends StatelessWidget {
                             await _controller.saveCredentials();
                             if(ret.status == Status.success){
                               Navigator.push(context, 
-                              MaterialPageRoute(builder: (context) => HomePageWidget()));
+                              MaterialPageRoute(builder: (context) => const AuthPage()));
                             }
                           },
                           icon: const Icon(

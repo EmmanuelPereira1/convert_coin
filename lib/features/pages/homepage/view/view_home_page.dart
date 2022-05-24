@@ -19,7 +19,7 @@ class ViewHomePage extends StatelessWidget {
           child: PageView(
               controller: _pageController,
               onPageChanged: _controller.setBottomSelectedIndex,
-              children: [ConvertPageWidget(), HistoricPageWidget()]),
+              children: [ViewConvertPage(),const ViewHistoric()]),
         );
       }),
       bottomNavigationBar: CurvedNavigationBar(
