@@ -109,7 +109,8 @@ abstract class _RegisterControllerBase with Store {
 
   @action 
   Future<void> saveCredentials() async {
-    final firestore = FirebaseFirestore.instance;
+    
+      final firestore = FirebaseFirestore.instance;
     var currentUser = FirebaseAuth.instance.currentUser;
     if(currentUser?.uid != null) {
       await firestore.collection('users').doc(currentUser!.uid).set({
@@ -124,7 +125,7 @@ abstract class _RegisterControllerBase with Store {
   @action 
   Future singUp() async {
     await FirebaseAuth.instance.createUserWithEmailAndPassword(
-      email: email.toString(), password: password.toString()
+      email: email, password: password,
     );
   }
  }

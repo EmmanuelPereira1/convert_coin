@@ -67,16 +67,15 @@ class ViewRegister extends StatelessWidget {
                     const SizedBox(
                       height: 20,
                     ),
-                     Observer(builder: (_) {
+                    Observer(builder: (_) {
                       return TextField(
                         obscureText: !_controller.isPasswordVisible,
                         decoration: InputDecoration(
                           suffixIcon: IconButton(
-                            onPressed: _controller.setPasswordVisible,
-                            icon: _controller.isPasswordVisible
-                            ? const Icon(Icons.visibility)
-                            : const Icon(Icons.visibility_off)
-                            ),
+                              onPressed: _controller.setPasswordVisible,
+                              icon: _controller.isPasswordVisible
+                                  ? const Icon(Icons.visibility)
+                                  : const Icon(Icons.visibility_off)),
                           hintText: 'Password',
                           border: OutlineInputBorder(
                             borderSide: BorderSide(color: Colors.black),
@@ -89,16 +88,16 @@ class ViewRegister extends StatelessWidget {
                     const SizedBox(
                       height: 20,
                     ),
-                     Observer(builder: (_) {
+                    Observer(builder: (_) {
                       return TextField(
                         obscureText: !_controller.isPasswordVisible,
                         decoration: InputDecoration(
                           suffixIcon: IconButton(
-                            onPressed: _controller.setPasswordConfirmationVisible,
-                            icon: _controller.isPasswordVisible
-                            ? const Icon(Icons.visibility)
-                            : const Icon(Icons.visibility_off)
-                            ),
+                              onPressed:
+                                  _controller.setPasswordConfirmationVisible,
+                              icon: _controller.isPasswordVisible
+                                  ? const Icon(Icons.visibility)
+                                  : const Icon(Icons.visibility_off)),
                           hintText: 'Password Confirmation',
                           border: OutlineInputBorder(
                             borderSide: const BorderSide(color: Colors.black),
@@ -111,6 +110,26 @@ class ViewRegister extends StatelessWidget {
                     const SizedBox(
                       height: 20,
                     ),
+                    Observer(builder: (_) {
+                      return OutlinedButton.icon(
+                          style: ButtonStyle(
+                            backgroundColor: MaterialStateProperty.all<Color>(
+                                const Color(0XFFF2C53D)),
+                          ),
+                          onPressed: () async {
+                            await _controller.registerUser();
+                            await _controller.singUp();
+                            await _controller.saveCredentials();
+                          },
+                          icon: const Icon(
+                            Icons.app_registration_outlined,
+                            color: Colors.white,
+                          ),
+                          label: const Text(
+                            "REGISTER",
+                            style: TextStyle(color: Color(0xFFD97236)),
+                          ));
+                    })
                   ],
                 )
               ],
