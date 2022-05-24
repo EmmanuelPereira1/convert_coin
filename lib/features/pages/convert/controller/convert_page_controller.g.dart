@@ -9,14 +9,6 @@ part of 'convert_page_controller.dart';
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic, no_leading_underscores_for_local_identifiers
 
 mixin _$ConvertPageController on _ConvertPageControllerBase, Store {
-  Computed<double>? _$valueToComputed;
-
-  @override
-  double get valueTo =>
-      (_$valueToComputed ??= Computed<double>(() => super.valueTo,
-              name: '_ConvertPageControllerBase.valueTo'))
-          .value;
-
   late final _$valueFromAtom =
       Atom(name: '_ConvertPageControllerBase.valueFrom', context: context);
 
@@ -30,6 +22,22 @@ mixin _$ConvertPageController on _ConvertPageControllerBase, Store {
   set valueFrom(String value) {
     _$valueFromAtom.reportWrite(value, super.valueFrom, () {
       super.valueFrom = value;
+    });
+  }
+
+  late final _$valueToAtom =
+      Atom(name: '_ConvertPageControllerBase.valueTo', context: context);
+
+  @override
+  String get valueTo {
+    _$valueToAtom.reportRead();
+    return super.valueTo;
+  }
+
+  @override
+  set valueTo(String value) {
+    _$valueToAtom.reportWrite(value, super.valueTo, () {
+      super.valueTo = value;
     });
   }
 
@@ -128,6 +136,17 @@ mixin _$ConvertPageController on _ConvertPageControllerBase, Store {
   }
 
   @override
+  dynamic setValueTo(dynamic value) {
+    final _$actionInfo = _$_ConvertPageControllerBaseActionController
+        .startAction(name: '_ConvertPageControllerBase.setValueTo');
+    try {
+      return super.setValueTo(value);
+    } finally {
+      _$_ConvertPageControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   dynamic setCoinFrom(dynamic value) {
     final _$actionInfo = _$_ConvertPageControllerBaseActionController
         .startAction(name: '_ConvertPageControllerBase.setCoinFrom');
@@ -150,14 +169,36 @@ mixin _$ConvertPageController on _ConvertPageControllerBase, Store {
   }
 
   @override
+  void convertTo() {
+    final _$actionInfo = _$_ConvertPageControllerBaseActionController
+        .startAction(name: '_ConvertPageControllerBase.convertTo');
+    try {
+      return super.convertTo();
+    } finally {
+      _$_ConvertPageControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void addFirebase() {
+    final _$actionInfo = _$_ConvertPageControllerBaseActionController
+        .startAction(name: '_ConvertPageControllerBase.addFirebase');
+    try {
+      return super.addFirebase();
+    } finally {
+      _$_ConvertPageControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
 valueFrom: ${valueFrom},
+valueTo: ${valueTo},
 coinFrom: ${coinFrom},
 coinTo: ${coinTo},
 coin: ${coin},
-coins: ${coins},
-valueTo: ${valueTo}
+coins: ${coins}
     ''';
   }
 }

@@ -1,5 +1,7 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:convert_coin/core/generic/resource.dart';
 import 'package:dio/dio.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:mobx/mobx.dart';
 
 import '../../../../../../../core/models/coin_model.dart';
@@ -13,6 +15,9 @@ abstract class _ConvertPageControllerBase with Store {
   String valueFrom = '';
 
   @observable
+  String valueTo = '';
+
+  @observable
   String coinFrom = '';
 
   @observable
@@ -24,19 +29,43 @@ abstract class _ConvertPageControllerBase with Store {
   @observable
   ObservableList coins = [''].asObservable();
 
-  @computed
-  double get valueTo => coin != null && valueFrom.isNotEmpty
-      ? double.parse(valueFrom) * double.parse(coin!.low!)
-      : 0.0;
-
   @action
   setValueFrom(value) => valueFrom = value;
+
+  @action
+  setValueTo(value) => valueTo = value;
 
   @action
   setCoinFrom(value) => coinFrom = value;
 
   @action
   setCoinTo(value) => coinTo = value;
+
+  @action
+  void convertTo() {
+    if (coin != null && valueFrom.isNotEmpty) {
+      setValueTo(
+          '${(double.parse(coin!.low!) * double.parse(valueFrom)).toStringAsFixed(2)}');
+    } else {
+      setValueTo('You need to select another coin!');
+    }
+  }
+
+  @action
+  void addFirebase() {
+    FirebaseFirestore.instance
+        .collection('users')
+        .doc(FirebaseAuth.instance.currentUser!.uid)
+        .update({
+      "history": FieldValue.arrayUnion([
+        {
+          coinFrom: {
+            coinTo: {valueFrom: valueTo}
+          }
+        }
+      ])
+    });
+  }
 
   @action
   Future<Resource<void, String>> getCoin() async {
