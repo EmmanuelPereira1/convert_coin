@@ -118,6 +118,7 @@ abstract class _RegisterControllerBase with Store {
         'last_name' : lastName,
         'password' : password,
         'email' : email,
+        'history' : [],
       });
     }
   }
