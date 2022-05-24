@@ -1,3 +1,4 @@
+import 'package:convert_coin/features/authetication/login/view/login_view.dart';
 import 'package:convert_coin/features/authetication/register/view/view_register.dart';
 import 'package:flutter/material.dart';
 
@@ -13,7 +14,7 @@ class AppWidget extends StatelessWidget {
       
         primarySwatch: Colors.blue,
       ),
-      home: ViewRegister(),
+      home: const LoginView(),
     );
   }
 }
