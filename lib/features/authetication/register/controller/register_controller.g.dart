@@ -209,6 +209,22 @@ mixin _$RegisterController on _RegisterControllerBase, Store {
     return _$registerUserAsyncAction.run(() => super.registerUser());
   }
 
+  late final _$saveCredentialsAsyncAction =
+      AsyncAction('_RegisterControllerBase.saveCredentials', context: context);
+
+  @override
+  Future<void> saveCredentials() {
+    return _$saveCredentialsAsyncAction.run(() => super.saveCredentials());
+  }
+
+  late final _$singUpAsyncAction =
+      AsyncAction('_RegisterControllerBase.singUp', context: context);
+
+  @override
+  Future<dynamic> singUp() {
+    return _$singUpAsyncAction.run(() => super.singUp());
+  }
+
   late final _$_RegisterControllerBaseActionController =
       ActionController(name: '_RegisterControllerBase', context: context);
 
