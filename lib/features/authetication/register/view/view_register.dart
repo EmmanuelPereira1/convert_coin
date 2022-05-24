@@ -1,8 +1,9 @@
 import 'package:convert_coin/core/generic/resource.dart';
 import 'package:convert_coin/features/authetication/register/controller/register_controller.dart';
-import 'package:convert_coin/features/authetication/register/view/pages/homepage/view/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+
+import '../../../pages/homepage/view/view_home_page.dart';
 
 class ViewRegister extends StatelessWidget {
   ViewRegister({Key? key}) : super(key: key);
