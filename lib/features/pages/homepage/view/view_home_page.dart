@@ -14,6 +14,7 @@ class ViewHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         home: Scaffold(
+      extendBody: true,
       body: Observer(builder: (_) {
         return SafeArea(
           child: PageView(
@@ -29,10 +30,19 @@ class ViewHomePage extends StatelessWidget {
           _pageController.animateToPage(index,
               duration: const Duration(milliseconds: 500), curve: Curves.ease);
         },
-        items: [Icon(Icons.person), Icon(Icons.abc_outlined)],
-        buttonBackgroundColor: Color(0xFFFF2C53D),
-        color: Color(0xFFFF2D16D),
-        backgroundColor: Colors.transparent,
+        items: const [
+          Icon(
+            Icons.attach_money,
+            color: Color(0xFFD97236),
+          ),
+          Icon(
+            Icons.history,
+            color: Color(0xFFD97236),
+          ),
+        ],
+        buttonBackgroundColor: const Color(0xFFFF2C53D),
+        color: const Color(0xFFFF2D16D),
+        backgroundColor: const Color(0xFFFFEBC5),
       ),
     ));
   }

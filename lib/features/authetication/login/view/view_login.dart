@@ -5,8 +5,6 @@ import 'package:convert_coin/features/authetication/register/view/view_register.
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 
-import '../../../pages/homepage/view/view_home_page.dart';
-
 class ViewLogin extends StatelessWidget {
   const ViewLogin({Key? key}) : super(key: key);
 
@@ -27,24 +25,31 @@ class ViewLogin extends StatelessWidget {
                 Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                   
+                    Container(
+                      child: Hero(
+                        tag: 'logo',
+                        child: Image.asset(
+                          'lib/assets/coin.png',
+                          height: 170,
+                          width: 170,
+                        ),
+                      ),
+                    ),
                     const SizedBox(
-                      height: 20,
+                      height: 40,
                     ),
                     Observer(builder: (_) {
                       return TextField(
                         decoration: InputDecoration(
                           focusedBorder: OutlineInputBorder(
-                             borderRadius: BorderRadius.circular(25),
-                            borderSide: BorderSide(color: Color(0xFFD97236))
-                          ),
+                              borderRadius: BorderRadius.circular(25),
+                              borderSide: BorderSide(color: Color(0xFFD97236))),
                           fillColor: Colors.white,
                           filled: true,
                           hintText: 'Email',
                           border: OutlineInputBorder(
-                            borderSide: const BorderSide(
-                              color: Colors.transparent
-                              ),
+                            borderSide:
+                                const BorderSide(color: Colors.transparent),
                             borderRadius: BorderRadius.circular(25),
                           ),
                         ),
@@ -63,17 +68,20 @@ class ViewLogin extends StatelessWidget {
                           suffixIcon: IconButton(
                               onPressed: _controller.setPasswordVisible,
                               icon: _controller.isPasswordVisible
-                                  ? const Icon(Icons.visibility,
-                                  color: Color(0xFFD97236),)
+                                  ? const Icon(
+                                      Icons.visibility,
+                                      color: Color(0xFFD97236),
+                                    )
                                   : const Icon(Icons.visibility_off,
-                                  color: Color(0xFFD97236))),
+                                      color: Color(0xFFD97236))),
                           hintText: 'Password',
                           focusedBorder: OutlineInputBorder(
-                             borderRadius: BorderRadius.circular(25),
-                            borderSide: const BorderSide(color: Color(0xFFD97236))
-                          ),
+                              borderRadius: BorderRadius.circular(25),
+                              borderSide:
+                                  const BorderSide(color: Color(0xFFD97236))),
                           border: OutlineInputBorder(
-                            borderSide: const BorderSide(color: Color(0xFFD97236)),
+                            borderSide:
+                                const BorderSide(color: Color(0xFFD97236)),
                             borderRadius: BorderRadius.circular(25),
                           ),
                         ),
@@ -83,31 +91,29 @@ class ViewLogin extends StatelessWidget {
                     const SizedBox(
                       height: 20,
                     ),
-                    const SizedBox(
-                      height: 20,
-                    ),
                     Observer(builder: (_) {
                       return SizedBox(
                         height: 50,
                         width: 200,
                         child: ElevatedButton(
                             style: ButtonStyle(
-                              shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                                RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(25.0),
-                                )
-                              ),
+                              shape: MaterialStateProperty.all<
+                                      RoundedRectangleBorder>(
+                                  RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(25.0),
+                              )),
                               backgroundColor: MaterialStateProperty.all<Color>(
                                   const Color(0XFFF2C53D)),
                             ),
                             onPressed: () async {
-                               Resource ret = await _controller.loginUser();
+                              Resource ret = await _controller.loginUser();
                               await _controller.singIn();
-                              if(ret.status == Status.success){
-                                Navigator.push(context, 
-                                MaterialPageRoute(builder: (context) => AuthPage()));
+                              if (ret.status == Status.success) {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => AuthPage()));
                               }
-                              
                             },
                             child: const Text(
                               "LOGIN",
@@ -115,31 +121,16 @@ class ViewLogin extends StatelessWidget {
                             )),
                       );
                     }),
-                    const SizedBox(height: 14,),
-                     Observer(builder: (_) {
-                      return SizedBox(
-                        height: 50,
-                        width: 200,
-                        child: ElevatedButton(
-                            style: ButtonStyle(
-                              shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                                RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(25.0),
-                                )
-                              ),
-                              backgroundColor: MaterialStateProperty.all<Color>(
-                                  const Color(0XFFF2C53D)),
-                            ),
-                            onPressed: () {
-                              Navigator.of(context).push(
-                                MaterialPageRoute(builder: (context) => ViewRegister())
-                              );
-                            },
-                            child: const Text(
-                              "REGISTER",
-                              style: TextStyle(color: Color(0xFFD97236)),
-                            )),
-                      );
+                    Observer(builder: (_) {
+                      return TextButton(
+                          onPressed: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => ViewRegister()));
+                          },
+                          child: const Text(
+                            "Don't have an account?",
+                            style: TextStyle(color: Color(0xFFD97236)),
+                          ));
                     })
                   ],
                 )
