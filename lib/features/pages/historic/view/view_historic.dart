@@ -1,6 +1,6 @@
 import 'package:convert_coin/features/authetication/auth_page/auth_page.dart';
-import 'package:convert_coin/features/authetication/login/view/view_login.dart';
 import 'package:convert_coin/features/pages/historic/controller/historic_controller.dart';
+import 'package:convert_coin/features/authetication/select_page/select_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
@@ -44,7 +44,7 @@ class _ViewHistoricState extends State<ViewHistoric> {
               onPressed: () {
                 FirebaseAuth.instance.signOut();
                 Navigator.of(context).pushReplacement(
-                    MaterialPageRoute(builder: (context) => const AuthPage()));
+                    MaterialPageRoute(builder: (context) => const ViewSelectPage()));
               },
               icon: const Icon(
                 Icons.logout_outlined,

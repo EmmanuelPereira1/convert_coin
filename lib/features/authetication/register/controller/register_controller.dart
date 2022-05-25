@@ -62,6 +62,9 @@ abstract class _RegisterControllerBase with Store {
   @computed 
   bool get isPasswordConfirmationValid => passwordConfirmation == password;
 
+  @computed
+  bool get isFormValid => isEmailValid && isPasswordValid && isPasswordConfirmationValid;
+
   @action
   Future<Resource<void, String>> registerUser() async {
     try{
