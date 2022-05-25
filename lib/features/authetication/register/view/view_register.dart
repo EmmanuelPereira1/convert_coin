@@ -14,184 +14,183 @@ class ViewRegister extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xFFFFEBC5),
         body: SingleChildScrollView(
           child: SafeArea(
               child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24),
-          child: Container(
-            child: Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      const SizedBox(height: 40,),
-                       Hero(
-                         tag: 'logo',
-                         child: Image.asset(
-                           'lib/assets/coin.png',
-                           height: 100,
-                           width: 100,
-                         ),
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    const SizedBox(height: 40,),
+                     Hero(
+                       tag: 'logo',
+                       child: Image.asset(
+                         'lib/assets/coin.png',
+                         height: 100,
+                         width: 100,
                        ),
-                      const SizedBox(height: 40,),
-                      Observer(builder: (_) {
-                        return TextField(
-                          decoration: InputDecoration(
-                            fillColor: Colors.white,
-                            filled: true,
-                            focusedBorder: OutlineInputBorder(
-                               borderRadius: BorderRadius.circular(25),
-                              borderSide: const BorderSide(color: Color(0xFFD97236))
-                            ),
-                            border: OutlineInputBorder(
-                              borderSide: const BorderSide(color: Color(0xFFD97236)),
-                              borderRadius: BorderRadius.circular(25),
-                            ),
-                            hintText: 'First Name',
+                     ),
+                    const SizedBox(height: 40,),
+                    Observer(builder: (_) {
+                      return TextField(
+                        decoration: InputDecoration(
+                          fillColor: Colors.white,
+                          filled: true,
+                          focusedBorder: OutlineInputBorder(
+                             borderRadius: BorderRadius.circular(25),
+                            borderSide: const BorderSide(color: Color(0xFFD97236))
                           ),
-                          onChanged: _controller.changeFirstName,
-                        );
-                      }),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      Observer(builder: (_) {
-                        return TextField(
-                          decoration: InputDecoration(
-                            fillColor: Colors.white,
-                            filled: true,
-                            focusedBorder: OutlineInputBorder(
-                               borderRadius: BorderRadius.circular(25),
-                              borderSide: const BorderSide(color: Color(0xFFD97236))
-                            ),
-                            border: OutlineInputBorder(
-                              borderSide: const BorderSide(color: Color(0xFFD97236)),
-                              borderRadius: BorderRadius.circular(25),
-                            ),
-                            hintText: 'Last Name',
+                          border: OutlineInputBorder(
+                            borderSide: const BorderSide(color: Color(0xFFD97236)),
+                            borderRadius: BorderRadius.circular(25),
                           ),
-                          onChanged: _controller.changeLastName,
-                        );
-                      }),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      Observer(builder: (_) {
-                        return TextField(
-                          decoration: InputDecoration(
-                            fillColor: Colors.white,
-                            filled: true,
-                            focusedBorder: OutlineInputBorder(
-                               borderRadius: BorderRadius.circular(25),
-                              borderSide: const BorderSide(color: Color(0xFFD97236))
-                            ),
-                            border: OutlineInputBorder(
-                              borderSide: const BorderSide(color: Color(0xFFD97236)),
-                              borderRadius: BorderRadius.circular(25),
-                            ),
-                            hintText: 'Email',
+                          hintText: 'First Name',
+                        ),
+                        onChanged: _controller.changeFirstName,
+                      );
+                    }),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    Observer(builder: (_) {
+                      return TextField(
+                        decoration: InputDecoration(
+                          fillColor: Colors.white,
+                          filled: true,
+                          focusedBorder: OutlineInputBorder(
+                             borderRadius: BorderRadius.circular(25),
+                            borderSide: const BorderSide(color: Color(0xFFD97236))
                           ),
-                          onChanged: _controller.changeEmail,
-                        );
-                      }),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      Observer(builder: (_) {
-                        return TextField(
-                          obscureText: !_controller.isPasswordVisible,
-                          decoration: InputDecoration(
-                            fillColor: Colors.white,
-                            filled: true,
-                            focusedBorder: OutlineInputBorder(
-                               borderRadius: BorderRadius.circular(25),
-                              borderSide: const BorderSide(color: Color(0xFFD97236))
-                            ),
-                            border: OutlineInputBorder(
-                              borderSide: const BorderSide(color: Color(0xFFD97236)),
-                              borderRadius: BorderRadius.circular(25),
-                            ),
-                            suffixIcon: IconButton(
-                                onPressed: _controller.setPasswordVisible,
-                                icon: _controller.isPasswordVisible
-                                    ? const Icon(Icons.visibility,
-                                    color: Color(0xFFD97236),)
-                                    : const Icon(Icons.visibility_off,
-                                    color: Color(0xFFD97236),)),
-                            hintText: 'Password',
+                          border: OutlineInputBorder(
+                            borderSide: const BorderSide(color: Color(0xFFD97236)),
+                            borderRadius: BorderRadius.circular(25),
                           ),
-                          onChanged: _controller.changePassword,
-                        );
-                      }),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      Observer(builder: (_) {
-                        return TextField(
-                          obscureText: !_controller.isPasswordVisible,
-                          decoration: InputDecoration(
-                            fillColor: Colors.white,
-                            filled: true,
-                            focusedBorder: OutlineInputBorder(
-                               borderRadius: BorderRadius.circular(25),
-                              borderSide: const BorderSide(color: Color(0xFFD97236))
-                            ),
-                            border: OutlineInputBorder(
-                              borderSide: const BorderSide(color: Color(0xFFD97236)),
-                              borderRadius: BorderRadius.circular(25),
-                            ),
-                            suffixIcon: IconButton(
-                                onPressed:
-                                    _controller.setPasswordConfirmationVisible,
-                                icon: _controller.isPasswordVisible
-                                    ? const Icon(Icons.visibility,
-                                    color: Color(0xFFD97236),)
-                                    : const Icon(Icons.visibility_off,
-                                    color: Color(0xFFD97236),)),
-                            hintText: 'Password Confirmation',
+                          hintText: 'Last Name',
+                        ),
+                        onChanged: _controller.changeLastName,
+                      );
+                    }),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    Observer(builder: (_) {
+                      return TextField(
+                        decoration: InputDecoration(
+                          fillColor: Colors.white,
+                          filled: true,
+                          focusedBorder: OutlineInputBorder(
+                             borderRadius: BorderRadius.circular(25),
+                            borderSide: const BorderSide(color: Color(0xFFD97236))
                           ),
-                          onChanged: _controller.changePasswordConfirmation,
-                        );
-                      }),
-                      const SizedBox(
-                        height: 40,
-                      ),
-                      Observer(builder: (_) {
-                        return SizedBox(
-                          height: 50,
-                          width: 200,
-                          child: ElevatedButton(
-                              style: ButtonStyle(
-                                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                                  RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(25.0),
-                                  )
-                                ),
-                                backgroundColor: MaterialStateProperty.all<Color>(
-                                    const Color(0XFFF2C53D)),
+                          border: OutlineInputBorder(
+                            borderSide: const BorderSide(color: Color(0xFFD97236)),
+                            borderRadius: BorderRadius.circular(25),
+                          ),
+                          hintText: 'Email',
+                        ),
+                        onChanged: _controller.changeEmail,
+                      );
+                    }),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    Observer(builder: (_) {
+                      return TextField(
+                        obscureText: !_controller.isPasswordVisible,
+                        decoration: InputDecoration(
+                          fillColor: Colors.white,
+                          filled: true,
+                          focusedBorder: OutlineInputBorder(
+                             borderRadius: BorderRadius.circular(25),
+                            borderSide: const BorderSide(color: Color(0xFFD97236))
+                          ),
+                          border: OutlineInputBorder(
+                            borderSide: const BorderSide(color: Color(0xFFD97236)),
+                            borderRadius: BorderRadius.circular(25),
+                          ),
+                          suffixIcon: IconButton(
+                              onPressed: _controller.setPasswordVisible,
+                              icon: _controller.isPasswordVisible
+                                  ? const Icon(Icons.visibility,
+                                  color: Color(0xFFD97236),)
+                                  : const Icon(Icons.visibility_off,
+                                  color: Color(0xFFD97236),)),
+                          hintText: 'Password',
+                        ),
+                        onChanged: _controller.changePassword,
+                      );
+                    }),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    Observer(builder: (_) {
+                      return TextField(
+                        obscureText: !_controller.isPasswordVisible,
+                        decoration: InputDecoration(
+                          fillColor: Colors.white,
+                          filled: true,
+                          focusedBorder: OutlineInputBorder(
+                             borderRadius: BorderRadius.circular(25),
+                            borderSide: const BorderSide(color: Color(0xFFD97236))
+                          ),
+                          border: OutlineInputBorder(
+                            borderSide: const BorderSide(color: Color(0xFFD97236)),
+                            borderRadius: BorderRadius.circular(25),
+                          ),
+                          suffixIcon: IconButton(
+                              onPressed:
+                                  _controller.setPasswordConfirmationVisible,
+                              icon: _controller.isPasswordVisible
+                                  ? const Icon(Icons.visibility,
+                                  color: Color(0xFFD97236),)
+                                  : const Icon(Icons.visibility_off,
+                                  color: Color(0xFFD97236),)),
+                          hintText: 'Password Confirmation',
+                        ),
+                        onChanged: _controller.changePasswordConfirmation,
+                      );
+                    }),
+                    const SizedBox(
+                      height: 40,
+                    ),
+                    Observer(builder: (_) {
+                      return SizedBox(
+                        height: 50,
+                        width: 200,
+                        child: ElevatedButton(
+                            style: ButtonStyle(
+                              shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                                RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(25.0),
+                                )
                               ),
-                              onPressed: _controller.isFormValid ?() async {
-                                Resource ret = await _controller.registerUser();
-                                await _controller.singUp();
-                                await _controller.saveCredentials();
-                                if(ret.status == Status.success){
-                                  Navigator.push(context, 
-                                  MaterialPageRoute(builder: (context) => const AuthPage()));
-                                }
-                              } : null,
-                              child: const Text(
-                                "REGISTER",
-                                style: TextStyle(color: Color(0xFFD97236)),
-                              )),
-                        );
-                      })
-                    ],
-                  )
-                ],
-              ),
+                              backgroundColor: MaterialStateProperty.all<Color>(
+                                  const Color(0XFFF2C53D)),
+                            ),
+                            onPressed: _controller.isFormValid ?() async {
+                              Resource ret = await _controller.registerUser();
+                              await _controller.singUp();
+                              await _controller.saveCredentials();
+                              if(ret.status == Status.success){
+                                Navigator.push(context, 
+                                MaterialPageRoute(builder: (context) => ViewHomePage()));
+                              }
+                            } : null,
+                            child: const Text(
+                              "REGISTER",
+                              style: TextStyle(color: Color(0xFFD97236)),
+                            )),
+                      );
+                    })
+                  ],
+                )
+              ],
             ),
           ),
               ),
