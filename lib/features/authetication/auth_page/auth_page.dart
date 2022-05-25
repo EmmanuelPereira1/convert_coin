@@ -1,4 +1,5 @@
 import 'package:convert_coin/features/authetication/login/view/view_login.dart';
+import 'package:convert_coin/features/authetication/select_page/select_page.dart';
 import 'package:convert_coin/features/pages/homepage/view/view_home_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/src/foundation/key.dart';
@@ -22,7 +23,7 @@ class AuthPage extends StatelessWidget {
           } else if (snapshot.hasError) {
             return const Center(child: Text("Something went wrong"));
           } else {
-            return const ViewLogin();
+            return const ViewSelectPage();
           }
         }),
       );

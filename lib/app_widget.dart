@@ -1,4 +1,5 @@
 import 'package:convert_coin/features/authetication/select_page/select_page.dart';
+import 'package:convert_coin/features/pages/splash/view/view_splash.dart';
 import 'package:flutter/material.dart';
 
 class AppWidget extends StatelessWidget {
@@ -13,7 +14,7 @@ class AppWidget extends StatelessWidget {
         scaffoldBackgroundColor: const Color(0xFFFFEBC5),
         primarySwatch: Colors.blue,
       ),
-      home: const ViewSelectPage(),
+      home: const ViewSplash(),
     );
   }
 }
