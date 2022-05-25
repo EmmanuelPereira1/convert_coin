@@ -27,6 +27,7 @@ class _ViewHistoricState extends State<ViewHistoric> {
     return Scaffold(
       backgroundColor: const Color(0xFFFFEBC5),
       extendBody: true,
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         centerTitle: true,
         title: Text(
