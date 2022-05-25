@@ -43,8 +43,8 @@ class _ViewHistoricState extends State<ViewHistoric> {
           IconButton(
               onPressed: () {
                 FirebaseAuth.instance.signOut();
-                Navigator.of(context).pushReplacement(
-                    MaterialPageRoute(builder: (context) => const ViewSelectPage()));
+                Navigator.of(context).pushReplacement(MaterialPageRoute(
+                    builder: (context) => const ViewSelectPage()));
               },
               icon: const Icon(
                 Icons.logout_outlined,
@@ -91,7 +91,7 @@ class _ViewHistoricState extends State<ViewHistoric> {
                             child: Text(
                               '$valueFrom',
                               style: GoogleFonts.inter(
-                                fontSize: 20,
+                                fontSize: 14,
                                 color: const Color(0xFFD97236),
                               ),
                             ),
@@ -181,9 +181,10 @@ class _ViewHistoricState extends State<ViewHistoric> {
                             child: Text(
                               '$valueTo',
                               style: GoogleFonts.inter(
-                                fontSize: 20,
+                                fontSize: 14,
                                 color: const Color(0xFFD97236),
                               ),
+                              overflow: TextOverflow.ellipsis,
                             ),
                           ),
                         ],
