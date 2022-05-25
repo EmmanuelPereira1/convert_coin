@@ -53,142 +53,148 @@ class _ViewHistoricState extends State<ViewHistoric> {
       ),
       body: Observer(
         builder: (_) {
-          return ListView.builder(
-            itemCount: _controller.history.length,
-            itemBuilder: (context, i) {
-              final history = _controller.history[i] as Map;
-              final coinFrom = history.keys.toList()[0];
-              final historyCoinFrom = history[coinFrom] as Map;
-              final coinTo = historyCoinFrom.keys.toList()[0];
-              final historyCoinTo = historyCoinFrom[coinTo] as Map;
-              final valueFrom = historyCoinTo.keys.toList()[0];
-              final valueTo = historyCoinTo[valueFrom];
-              return ListTile(
-                title: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Container(
-                      padding: const EdgeInsets.all(8),
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(16),
-                          color: Colors.white,
-                          border: const Border(
-                            bottom: BorderSide(
-                              color: Color(0xFFD97236),
-                            ),
-                            top: BorderSide(
-                              color: Color(0xFFD97236),
-                            ),
-                            left: BorderSide(
-                              color: Color(0xFFD97236),
-                            ),
-                            right: BorderSide(
-                              color: Color(0xFFD97236),
-                            ),
-                          )),
-                      child: Text(
-                        '$valueFrom',
-                        style: GoogleFonts.inter(
-                          fontSize: 20,
-                          color: const Color(0xFFD97236),
-                        ),
-                      ),
-                    ),
-                    Container(
-                      padding: const EdgeInsets.all(16),
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(16),
-                          color: Colors.white,
-                          border: const Border(
-                            bottom: BorderSide(
-                              color: Color(0xFFD97236),
-                            ),
-                            top: BorderSide(
-                              color: Color(0xFFD97236),
-                            ),
-                            left: BorderSide(
-                              color: Color(0xFFD97236),
-                            ),
-                            right: BorderSide(
-                              color: Color(0xFFD97236),
-                            ),
-                          )),
-                      child: Row(
+          return _controller.history.isNotEmpty
+              ? ListView.builder(
+                  itemCount: _controller.history.length,
+                  itemBuilder: (context, i) {
+                    final history = _controller.history[i] as Map;
+                    final coinFrom = history.keys.toList()[0];
+                    final historyCoinFrom = history[coinFrom] as Map;
+                    final coinTo = historyCoinFrom.keys.toList()[0];
+                    final historyCoinTo = historyCoinFrom[coinTo] as Map;
+                    final valueFrom = historyCoinTo.keys.toList()[0];
+                    final valueTo = historyCoinTo[valueFrom];
+                    return ListTile(
+                      title: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text(
-                            '$coinFrom',
-                            style: GoogleFonts.inter(
-                              fontSize: 20,
-                              color: const Color(0xFFD97236),
+                          Container(
+                            padding: const EdgeInsets.all(8),
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(16),
+                                color: Colors.white,
+                                border: const Border(
+                                  bottom: BorderSide(
+                                    color: Color(0xFFD97236),
+                                  ),
+                                  top: BorderSide(
+                                    color: Color(0xFFD97236),
+                                  ),
+                                  left: BorderSide(
+                                    color: Color(0xFFD97236),
+                                  ),
+                                  right: BorderSide(
+                                    color: Color(0xFFD97236),
+                                  ),
+                                )),
+                            child: Text(
+                              '$valueFrom',
+                              style: GoogleFonts.inter(
+                                fontSize: 20,
+                                color: const Color(0xFFD97236),
+                              ),
                             ),
                           ),
-                          const SizedBox(
-                            width: 8,
-                          ),
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(16),
-                            child: Container(
-                              padding: const EdgeInsets.all(8),
-                              color: Colors.white,
-                              child: const Icon(Icons.loop_outlined,
-                                  color: Color(0xFFD97236), size: 30),
+                          Container(
+                            padding: const EdgeInsets.all(16),
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(16),
+                                color: Colors.white,
+                                border: const Border(
+                                  bottom: BorderSide(
+                                    color: Color(0xFFD97236),
+                                  ),
+                                  top: BorderSide(
+                                    color: Color(0xFFD97236),
+                                  ),
+                                  left: BorderSide(
+                                    color: Color(0xFFD97236),
+                                  ),
+                                  right: BorderSide(
+                                    color: Color(0xFFD97236),
+                                  ),
+                                )),
+                            child: Row(
+                              children: [
+                                Text(
+                                  '$coinFrom',
+                                  style: GoogleFonts.inter(
+                                    fontSize: 20,
+                                    color: const Color(0xFFD97236),
+                                  ),
+                                ),
+                                const SizedBox(
+                                  width: 8,
+                                ),
+                                ClipRRect(
+                                  borderRadius: BorderRadius.circular(16),
+                                  child: Container(
+                                    padding: const EdgeInsets.all(8),
+                                    color: Colors.white,
+                                    child: const Icon(Icons.loop_outlined,
+                                        color: Color(0xFFD97236), size: 30),
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: 8,
+                                ),
+                                Text(
+                                  '$coinTo',
+                                  style: GoogleFonts.inter(
+                                    fontSize: 20,
+                                    color: const Color(0xFFD97236),
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
-                          SizedBox(
-                            width: 8,
+                          Container(
+                            padding: const EdgeInsets.all(8),
+                            child: Text(
+                              '=',
+                              style: GoogleFonts.inter(
+                                fontSize: 20,
+                                color: const Color(0xFFD97236),
+                              ),
+                            ),
                           ),
-                          Text(
-                            '$coinTo',
-                            style: GoogleFonts.inter(
-                              fontSize: 20,
-                              color: const Color(0xFFD97236),
+                          Container(
+                            padding: const EdgeInsets.all(8),
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(16),
+                                color: Colors.white,
+                                border: const Border(
+                                  bottom: BorderSide(
+                                    color: Color(0xFFD97236),
+                                  ),
+                                  top: BorderSide(
+                                    color: Color(0xFFD97236),
+                                  ),
+                                  left: BorderSide(
+                                    color: Color(0xFFD97236),
+                                  ),
+                                  right: BorderSide(
+                                    color: Color(0xFFD97236),
+                                  ),
+                                )),
+                            child: Text(
+                              '$valueTo',
+                              style: GoogleFonts.inter(
+                                fontSize: 20,
+                                color: const Color(0xFFD97236),
+                              ),
                             ),
                           ),
                         ],
                       ),
-                    ),
-                    Container(
-                      padding: const EdgeInsets.all(8),
-                      child: Text(
-                        '=',
-                        style: GoogleFonts.inter(
-                          fontSize: 20,
-                          color: const Color(0xFFD97236),
-                        ),
-                      ),
-                    ),
-                    Container(
-                      padding: const EdgeInsets.all(8),
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(16),
-                          color: Colors.white,
-                          border: const Border(
-                            bottom: BorderSide(
-                              color: Color(0xFFD97236),
-                            ),
-                            top: BorderSide(
-                              color: Color(0xFFD97236),
-                            ),
-                            left: BorderSide(
-                              color: Color(0xFFD97236),
-                            ),
-                            right: BorderSide(
-                              color: Color(0xFFD97236),
-                            ),
-                          )),
-                      child: Text(
-                        '$valueTo',
-                        style: GoogleFonts.inter(
-                          fontSize: 20,
-                          color: const Color(0xFFD97236),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              );
-            },
-          );
+                    );
+                  },
+                )
+              : Text('Historic of convertions is still empty.',
+                  style: GoogleFonts.inter(
+                    fontSize: 20,
+                    color: const Color(0xFFD97236),
+                  ));
         },
       ),
     );
