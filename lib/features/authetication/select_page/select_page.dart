@@ -1,8 +1,9 @@
-import 'package:convert_coin/core/generic/resource.dart';
 import 'package:convert_coin/features/authetication/auth_page/auth_page.dart';
 import 'package:convert_coin/features/authetication/google_sign_in/controller/google_sign_in_controller.dart';
 import 'package:convert_coin/features/authetication/login/view/view_login.dart';
 import 'package:flutter/material.dart';
+
+import '../google_sign_in/controller/google_sign_in_controller.dart';
 
 class ViewSelectPage extends StatelessWidget {
   const ViewSelectPage({Key? key}) : super(key: key);
