@@ -1,11 +1,16 @@
+import 'package:convert_coin/core/generic/resource.dart';
+import 'package:convert_coin/features/authetication/auth_page/auth_page.dart';
+import 'package:convert_coin/features/authetication/google_sign_in/controller/google_sign_in_controller.dart';
 import 'package:convert_coin/features/authetication/login/view/view_login.dart';
 import 'package:flutter/material.dart';
 
-class SelectPage extends StatelessWidget {
-  const SelectPage({Key? key}) : super(key: key);
+class ViewSelectPage extends StatelessWidget {
+  const ViewSelectPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final _controller = ControllerGoogleSingIn();
+
     return Scaffold(
         body: SafeArea(
       child: Padding(
@@ -29,10 +34,10 @@ class SelectPage extends StatelessWidget {
                         ),
                       ),
                     ),
-                    
+                    const SizedBox(height: 60),
                     SizedBox(
                       height: 50,
-                      width: 200,
+                      width: 250,
                       child: ElevatedButton(
                         style: ButtonStyle(
                           shape:
@@ -44,8 +49,10 @@ class SelectPage extends StatelessWidget {
                               const Color(0XFFF2C53D)),
                         ),
                         onPressed: () async {
-                          Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => const ViewLogin()));
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const ViewLogin()));
                         },
                         child: const Text(
                           "LOG IN WITH AN ACCOUNT",
@@ -53,9 +60,10 @@ class SelectPage extends StatelessWidget {
                         ),
                       ),
                     ),
+                   const SizedBox(height: 20),
                     SizedBox(
                       height: 50,
-                      width: 200,
+                      width: 250,
                       child: ElevatedButton(
                         style: ButtonStyle(
                           shape:
@@ -67,8 +75,14 @@ class SelectPage extends StatelessWidget {
                               const Color(0XFFF2C53D)),
                         ),
                         onPressed: () async {
-                          Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => const ViewLogin()));
+                          await _controller.googleLogin();
+                          await _controller.saveCredentialsGoogle();
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => AuthPage(),
+                              ),
+                            );
                         },
                         child: const Text(
                           "LOG IN BY GOOGLE ACCOUNT",

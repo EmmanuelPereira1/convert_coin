@@ -20,11 +20,21 @@ abstract class _LoginControllerBase with Store {
  @action
  void setEmail(newValue) => email = newValue;
 
+ @computed
+  bool get isEmailValid =>
+    email.contains('@') && email.contains('.com') && email.isNotEmpty;
+
  @observable 
  String password = '';
 
  @action
  void setpassword(newValue) => password = newValue;
+
+ @computed
+  bool get isPasswordValid => password.length > 7;
+
+   @computed
+  bool get isFormValid => isEmailValid && isPasswordValid;
 
  @action 
   Future singIn() async {

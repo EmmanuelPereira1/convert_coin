@@ -13,26 +13,25 @@ class ViewLogin extends StatelessWidget {
     final _controller = LoginController();
 
     return Scaffold(
-        body: SafeArea(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 24),
-        child: Container(
+        body: SingleChildScrollView(
+          child: SafeArea(
+              child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 24),
           child: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
+                const SizedBox(height: 130),
                 Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Container(
-                      child: Hero(
-                        tag: 'logo',
-                        child: Image.asset(
-                          'lib/assets/coin.png',
-                          height: 170,
-                          width: 170,
-                        ),
+                    Hero(
+                      tag: 'logo',
+                      child: Image.asset(
+                        'lib/assets/coin.png',
+                        height: 170,
+                        width: 170,
                       ),
                     ),
                     const SizedBox(
@@ -105,7 +104,7 @@ class ViewLogin extends StatelessWidget {
                               backgroundColor: MaterialStateProperty.all<Color>(
                                   const Color(0XFFF2C53D)),
                             ),
-                            onPressed: () async {
+                            onPressed: _controller.isFormValid ? () async {
                               Resource ret = await _controller.loginUser();
                               await _controller.singIn();
                               if (ret.status == Status.success) {
@@ -114,7 +113,7 @@ class ViewLogin extends StatelessWidget {
                                     MaterialPageRoute(
                                         builder: (context) => AuthPage()));
                               }
-                            },
+                            } : null,
                             child: const Text(
                               "LOGIN",
                               style: TextStyle(color: Color(0xFFD97236)),
@@ -137,8 +136,8 @@ class ViewLogin extends StatelessWidget {
               ],
             ),
           ),
-        ),
-      ),
-    ));
+              ),
+            ),
+        ));
   }
 }

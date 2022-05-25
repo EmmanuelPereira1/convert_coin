@@ -1,6 +1,4 @@
-import 'package:convert_coin/features/authetication/auth_page/auth_page.dart';
-import 'package:convert_coin/features/authetication/login/view/view_login.dart';
-import 'package:convert_coin/features/authetication/register/view/view_register.dart';
+import 'package:convert_coin/features/authetication/select_page/select_page.dart';
 import 'package:flutter/material.dart';
 
 class AppWidget extends StatelessWidget {
@@ -15,7 +13,7 @@ class AppWidget extends StatelessWidget {
         scaffoldBackgroundColor: const Color(0xFFFFEBC5),
         primarySwatch: Colors.blue,
       ),
-      home: const AuthPage(),
+      home: const ViewSelectPage(),
     );
   }
 }
