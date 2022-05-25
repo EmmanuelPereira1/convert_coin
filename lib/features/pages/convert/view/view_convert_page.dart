@@ -13,6 +13,7 @@ class ViewConvertPage extends StatefulWidget {
 
 class _ViewConvertPageState extends State<ViewConvertPage> {
   final _controller = ConvertPageController();
+  final _textControlller = TextEditingController();
 
   @override
   void initState() {
@@ -24,7 +25,7 @@ class _ViewConvertPageState extends State<ViewConvertPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-    backgroundColor: const Color(0xFFFFEBC5),
+      backgroundColor: const Color(0xFFFFEBC5),
       extendBody: true,
       appBar: AppBar(
         elevation: 0,
@@ -57,6 +58,7 @@ class _ViewConvertPageState extends State<ViewConvertPage> {
               ),
               Observer(builder: (_) {
                 return TextField(
+                  controller: _textControlller,
                   onChanged: _controller.setValueFrom,
                   style: GoogleFonts.inter(fontSize: 16),
                   decoration: InputDecoration(
@@ -165,8 +167,8 @@ class _ViewConvertPageState extends State<ViewConvertPage> {
                               ElevatedButton(
                                 onPressed: () {
                                   _controller.addFirebase();
+                                  _textControlller.text = '';
                                   Navigator.pop(context);
-                                  _controller.setValueFrom('');
                                 },
                                 child: Text(
                                   'Yes',
@@ -186,6 +188,7 @@ class _ViewConvertPageState extends State<ViewConvertPage> {
                               ),
                               ElevatedButton(
                                 onPressed: () {
+                                  _textControlller.text = '';
                                   Navigator.pop(context);
                                 },
                                 child: Text(
@@ -210,6 +213,7 @@ class _ViewConvertPageState extends State<ViewConvertPage> {
                   } else {
                     _controller.setValueTo(
                         'You need to fill a value or select another coin!');
+                    _textControlller.text = '';
                   }
                 },
                 style: ButtonStyle(
