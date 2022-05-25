@@ -15,6 +15,7 @@ class ViewHomePage extends StatelessWidget {
     return MaterialApp(
         home: Scaffold(
       extendBody: true,
+      resizeToAvoidBottomInset: false,
       body: Observer(builder: (_) {
         return SafeArea(
           child: PageView(

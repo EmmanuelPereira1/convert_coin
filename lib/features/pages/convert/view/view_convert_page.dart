@@ -27,6 +27,7 @@ class _ViewConvertPageState extends State<ViewConvertPage> {
     return Scaffold(
       backgroundColor: const Color(0xFFFFEBC5),
       extendBody: true,
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.transparent,
@@ -213,7 +214,6 @@ class _ViewConvertPageState extends State<ViewConvertPage> {
                   } else {
                     _controller.setValueTo(
                         'You need to fill a value or select another coin!');
-                    _textControlller.text = '';
                   }
                 },
                 style: ButtonStyle(
