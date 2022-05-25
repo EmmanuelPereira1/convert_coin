@@ -13,6 +13,7 @@ class ViewSelectPage extends StatelessWidget {
     final _controller = ControllerGoogleSingIn();
 
     return Scaffold(
+      backgroundColor: const Color(0xFFFFEBC5),
         body: SafeArea(
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 24),

@@ -13,6 +13,7 @@ class ViewLogin extends StatelessWidget {
     final _controller = LoginController();
 
     return Scaffold(
+      backgroundColor: const Color(0xFFFFEBC5),
         body: SingleChildScrollView(
           child: SafeArea(
               child: Padding(
