@@ -106,7 +106,8 @@ class _ViewHistoricState extends State<ViewHistoric> {
                                   ),
                                 ),
                                 Container(
-                                  padding: const EdgeInsets.all(16),
+                                  padding: const EdgeInsets.all(8),
+                                  height: 50,
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(16),
                                       color: Colors.white,
@@ -133,9 +134,6 @@ class _ViewHistoricState extends State<ViewHistoric> {
                                           color: const Color(0xFFD97236),
                                         ),
                                       ),
-                                      const SizedBox(
-                                        width: 8,
-                                      ),
                                       ClipRRect(
                                         borderRadius: BorderRadius.circular(16),
                                         child: Container(
@@ -145,9 +143,6 @@ class _ViewHistoricState extends State<ViewHistoric> {
                                               color: Color(0xFFD97236),
                                               size: 30),
                                         ),
-                                      ),
-                                      SizedBox(
-                                        width: 8,
                                       ),
                                       Text(
                                         '$coinTo',
