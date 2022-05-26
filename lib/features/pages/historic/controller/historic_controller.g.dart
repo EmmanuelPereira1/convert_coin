@@ -25,6 +25,22 @@ mixin _$HistoricController on _HistoricControllerBase, Store {
     });
   }
 
+  late final _$loadingPageAtom =
+      Atom(name: '_HistoricControllerBase.loadingPage', context: context);
+
+  @override
+  Resource<dynamic, dynamic> get loadingPage {
+    _$loadingPageAtom.reportRead();
+    return super.loadingPage;
+  }
+
+  @override
+  set loadingPage(Resource<dynamic, dynamic> value) {
+    _$loadingPageAtom.reportWrite(value, super.loadingPage, () {
+      super.loadingPage = value;
+    });
+  }
+
   late final _$fetchHistoricAsyncAction =
       AsyncAction('_HistoricControllerBase.fetchHistoric', context: context);
 
@@ -36,7 +52,8 @@ mixin _$HistoricController on _HistoricControllerBase, Store {
   @override
   String toString() {
     return '''
-history: ${history}
+history: ${history},
+loadingPage: ${loadingPage}
     ''';
   }
 }
