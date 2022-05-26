@@ -45,13 +45,6 @@ mixin _$RegisterController on _RegisterControllerBase, Store {
               () => super.isPasswordConfirmationValid,
               name: '_RegisterControllerBase.isPasswordConfirmationValid'))
           .value;
-  Computed<bool>? _$isFormValidComputed;
-
-  @override
-  bool get isFormValid =>
-      (_$isFormValidComputed ??= Computed<bool>(() => super.isFormValid,
-              name: '_RegisterControllerBase.isFormValid'))
-          .value;
   Computed<bool>? _$areCredentialsValidComputed;
 
   @override
@@ -340,7 +333,6 @@ isFirstNameValid: ${isFirstNameValid},
 isLastNameValid: ${isLastNameValid},
 isPasswordValid: ${isPasswordValid},
 isPasswordConfirmationValid: ${isPasswordConfirmationValid},
-isFormValid: ${isFormValid},
 areCredentialsValid: ${areCredentialsValid}
     ''';
   }

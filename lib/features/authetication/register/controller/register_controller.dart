@@ -24,7 +24,7 @@ abstract class _RegisterControllerBase with Store {
   @computed
   bool get isEmailValid =>
     email.contains('@') && email.contains('.com') && email.isNotEmpty;
-  
+
   @observable
   String firstName = '';
 
@@ -62,8 +62,8 @@ abstract class _RegisterControllerBase with Store {
   @computed 
   bool get isPasswordConfirmationValid => passwordConfirmation == password;
 
-  @computed
-  bool get isFormValid => isEmailValid && isPasswordValid && isPasswordConfirmationValid;
+  // @computed
+  // bool get isFormValid => isEmailValid && isPasswordValid && isPasswordConfirmationValid;
 
   @action
   Future<Resource<void, String>> registerUser() async {

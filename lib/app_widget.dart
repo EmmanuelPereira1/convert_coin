@@ -1,4 +1,3 @@
-import 'package:convert_coin/features/authetication/select_page/select_page.dart';
 import 'package:convert_coin/features/pages/splash/view/view_splash.dart';
 import 'package:flutter/material.dart';
 
