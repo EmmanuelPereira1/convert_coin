@@ -1,6 +1,7 @@
 import 'package:convert_coin/core/generic/resource.dart';
 import 'package:convert_coin/core/widgets/success_show_dialog.dart';
 import 'package:convert_coin/features/authetication/register/controller/register_controller.dart';
+import 'package:convert_coin/features/authetication/success_register/view/view_success_register.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import '../../../../core/widgets/failed_show_dialog.dart';
@@ -208,11 +209,10 @@ class ViewRegister extends StatelessWidget {
                                         if (ret.status == Status.success) {
                                           await _controller.singUp();
                                             await _controller.saveCredentials();
-                                            Navigator.push(
-                                              context,
-                                              MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      ViewHomePage()));
+                                             Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => ViewSuccessRegister()));
                                         }
                                       }
                                     : null,
