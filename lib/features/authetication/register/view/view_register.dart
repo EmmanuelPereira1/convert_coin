@@ -1,13 +1,9 @@
-import 'dart:math';
-
 import 'package:convert_coin/core/generic/resource.dart';
-import 'package:convert_coin/core/widgets/show_dialog.dart';
-import 'package:convert_coin/features/authetication/auth_page/auth_page.dart';
+import 'package:convert_coin/core/widgets/success_show_dialog.dart';
 import 'package:convert_coin/features/authetication/register/controller/register_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:google_fonts/google_fonts.dart';
-
+import '../../../../core/widgets/failed_show_dialog.dart';
 import '../../../pages/homepage/view/view_home_page.dart';
 
 class ViewRegister extends StatelessWidget {
@@ -211,8 +207,8 @@ class ViewRegister extends StatelessWidget {
                                         }
                                         if (ret.status == Status.success) {
                                           await _controller.singUp();
-                                          await _controller.saveCredentials();
-                                          Navigator.push(
+                                            await _controller.saveCredentials();
+                                            Navigator.push(
                                               context,
                                               MaterialPageRoute(
                                                   builder: (context) =>

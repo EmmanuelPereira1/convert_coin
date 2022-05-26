@@ -5,6 +5,8 @@ import 'package:convert_coin/features/authetication/register/view/view_register.
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 
+import '../../../../core/widgets/failed_show_dialog.dart';
+
 class ViewLogin extends StatelessWidget {
   const ViewLogin({Key? key}) : super(key: key);
 
@@ -107,8 +109,18 @@ class ViewLogin extends StatelessWidget {
                             ),
                             onPressed: _controller.isFormValid ? () async {
                               Resource ret = await _controller.loginUser();
-                              await _controller.singIn();
+                              if (ret.hasError) {
+                                          await showDialog(
+                                              context: context,
+                                              builder: (context) {
+                                                return CustomErrorDialog(error: ret.error!,
+                                                onPressed: (){
+                                                  Navigator.pop(context);
+                                                });
+                                              });
+                                        }
                               if (ret.status == Status.success) {
+                                await _controller.singIn();
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
