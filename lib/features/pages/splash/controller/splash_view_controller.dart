@@ -1,8 +1,5 @@
 import 'package:convert_coin/core/generic/resource.dart';
 import 'package:convert_coin/features/authetication/auth_page/auth_page.dart';
-import 'package:convert_coin/features/authetication/select_page/select_page.dart';
-import 'package:convert_coin/features/pages/homepage/view/view_home_page.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 part 'splash_view_controller.g.dart';

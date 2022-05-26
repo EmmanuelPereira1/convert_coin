@@ -2,6 +2,7 @@ import 'package:convert_coin/core/generic/resource.dart';
 import 'package:convert_coin/features/authetication/auth_page/auth_page.dart';
 import 'package:convert_coin/features/authetication/login/controller/login_controller.dart';
 import 'package:convert_coin/features/authetication/register/view/view_register.dart';
+import 'package:convert_coin/features/authetication/success_login/view/view_success_login.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 
@@ -124,7 +125,7 @@ class ViewLogin extends StatelessWidget {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => AuthPage()));
+                                        builder: (context) => ViewSuccessLogin()));
                               }
                             } : null,
                             child: const Text(
