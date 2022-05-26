@@ -166,12 +166,22 @@ class _ViewConvertPageState extends State<ViewConvertPage> {
                           return AlertDialog(
                             title: Text(
                               'Storing to Firebase',
-                              style: GoogleFonts.inter(fontSize: 20),
+                              style: GoogleFonts.inter(
+                                fontSize: 20,
+                                color: const Color(0xFFD97236),
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                             content: Text(
                               'Would you like to store this conversion?',
-                              style: GoogleFonts.inter(fontSize: 16),
+                              style: GoogleFonts.inter(
+                                fontSize: 16,
+                                color: const Color(0xFFD97236),
+                              ),
                             ),
+                            backgroundColor: const Color(0xFFFFEBC5),
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(16)),
                             actions: [
                               ElevatedButton(
                                 onPressed: () {
@@ -181,7 +191,10 @@ class _ViewConvertPageState extends State<ViewConvertPage> {
                                 },
                                 child: Text(
                                   'Yes',
-                                  style: GoogleFonts.inter(fontSize: 20),
+                                  style: GoogleFonts.inter(
+                                    fontSize: 20,
+                                    color: const Color(0xFFD97236),
+                                  ),
                                 ),
                                 style: ButtonStyle(
                                   shape: MaterialStateProperty.all<
@@ -202,7 +215,10 @@ class _ViewConvertPageState extends State<ViewConvertPage> {
                                 },
                                 child: Text(
                                   'No',
-                                  style: GoogleFonts.inter(fontSize: 20),
+                                  style: GoogleFonts.inter(
+                                    fontSize: 20,
+                                    color: const Color(0xFFD97236),
+                                  ),
                                 ),
                                 style: ButtonStyle(
                                   shape: MaterialStateProperty.all<
