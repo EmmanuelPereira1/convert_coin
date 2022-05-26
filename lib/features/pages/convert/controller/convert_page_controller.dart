@@ -29,6 +29,9 @@ abstract class _ConvertPageControllerBase with Store {
   @observable
   ObservableList coins = [''].asObservable();
 
+  @observable
+  Resource<void, String> statusButton = Resource.success();
+
   @action
   setValueFrom(value) => valueFrom = value;
 
@@ -42,13 +45,18 @@ abstract class _ConvertPageControllerBase with Store {
   setCoinTo(value) => coinTo = value;
 
   @action
-  void convertTo() {
+  Future<void> convertTo() async {
+    statusButton = Resource.loading();
+    setValueTo('');
+    await Future.delayed(Duration(seconds: 2));
     if (coin != null && valueFrom.isNotEmpty) {
       setValueTo(
           '${(double.parse(coin!.low!) * double.parse(valueFrom)).toStringAsFixed(2)}');
     } else {
       setValueTo('You need to select another coin!');
     }
+
+    statusButton = Resource.success();
   }
 
   @action

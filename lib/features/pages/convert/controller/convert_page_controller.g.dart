@@ -105,6 +105,30 @@ mixin _$ConvertPageController on _ConvertPageControllerBase, Store {
     });
   }
 
+  late final _$statusButtonAtom =
+      Atom(name: '_ConvertPageControllerBase.statusButton', context: context);
+
+  @override
+  Resource<void, String> get statusButton {
+    _$statusButtonAtom.reportRead();
+    return super.statusButton;
+  }
+
+  @override
+  set statusButton(Resource<void, String> value) {
+    _$statusButtonAtom.reportWrite(value, super.statusButton, () {
+      super.statusButton = value;
+    });
+  }
+
+  late final _$convertToAsyncAction =
+      AsyncAction('_ConvertPageControllerBase.convertTo', context: context);
+
+  @override
+  Future<void> convertTo() {
+    return _$convertToAsyncAction.run(() => super.convertTo());
+  }
+
   late final _$getCoinAsyncAction =
       AsyncAction('_ConvertPageControllerBase.getCoin', context: context);
 
@@ -169,17 +193,6 @@ mixin _$ConvertPageController on _ConvertPageControllerBase, Store {
   }
 
   @override
-  void convertTo() {
-    final _$actionInfo = _$_ConvertPageControllerBaseActionController
-        .startAction(name: '_ConvertPageControllerBase.convertTo');
-    try {
-      return super.convertTo();
-    } finally {
-      _$_ConvertPageControllerBaseActionController.endAction(_$actionInfo);
-    }
-  }
-
-  @override
   void addFirebase() {
     final _$actionInfo = _$_ConvertPageControllerBaseActionController
         .startAction(name: '_ConvertPageControllerBase.addFirebase');
@@ -198,7 +211,8 @@ valueTo: ${valueTo},
 coinFrom: ${coinFrom},
 coinTo: ${coinTo},
 coin: ${coin},
-coins: ${coins}
+coins: ${coins},
+statusButton: ${statusButton}
     ''';
   }
 }
