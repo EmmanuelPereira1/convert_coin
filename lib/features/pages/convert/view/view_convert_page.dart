@@ -13,8 +13,7 @@ class ViewConvertPage extends StatefulWidget {
   State<ViewConvertPage> createState() => _ViewConvertPageState();
 }
 
-class _ViewConvertPageState extends State<ViewConvertPage>
-    with SingleTickerProviderStateMixin {
+class _ViewConvertPageState extends State<ViewConvertPage> {
   final _controller = ConvertPageController();
   final _textControlller = TextEditingController();
 
