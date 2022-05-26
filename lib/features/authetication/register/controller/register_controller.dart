@@ -43,7 +43,6 @@ abstract class _RegisterControllerBase with Store {
   @computed
   bool get isLastNameValid => lastName.isNotEmpty;
 
-
   @observable
   String password = '';
 

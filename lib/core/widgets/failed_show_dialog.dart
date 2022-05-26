@@ -5,9 +5,7 @@ class CustomErrorDialog extends StatelessWidget {
   final String error;
   final void Function() onPressed;
   const CustomErrorDialog(
-      {Key? key,
-      required this.error,
-      required this.onPressed})
+      {Key? key, required this.error, required this.onPressed})
       : super(key: key);
 
   @override
@@ -36,8 +34,13 @@ class CustomErrorDialog extends StatelessWidget {
               style: const TextStyle(fontSize: 24),
             ),
             ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                primary: const Color(0XFFF2C53D),
+              style: ButtonStyle(
+                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                    RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(25.0),
+                )),
+                backgroundColor:
+                    MaterialStateProperty.all<Color>(const Color(0XFFF2C53D)),
               ),
               onPressed: onPressed,
               child: const Text(
