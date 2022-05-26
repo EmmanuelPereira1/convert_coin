@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:lottie/lottie.dart';
 
+import '../../../../core/generic/resource.dart';
 import '../controller/convert_page_controller.dart';
 
 class ViewConvertPage extends StatefulWidget {
@@ -11,7 +13,8 @@ class ViewConvertPage extends StatefulWidget {
   State<ViewConvertPage> createState() => _ViewConvertPageState();
 }
 
-class _ViewConvertPageState extends State<ViewConvertPage> {
+class _ViewConvertPageState extends State<ViewConvertPage>
+    with SingleTickerProviderStateMixin {
   final _controller = ConvertPageController();
   final _textControlller = TextEditingController();
 
@@ -48,7 +51,13 @@ class _ViewConvertPageState extends State<ViewConvertPage> {
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Image.asset('lib/assets/dollar.png'),
+              Observer(builder: (_) {
+                return Lottie.network(
+                    'https://assets2.lottiefiles.com/packages/lf20_oo9n3jl8.json',
+                    animate: _controller.statusButton.status == Status.loading,
+                    width: 300,
+                    height: 300);
+              }),
               Text(
                 'CONVERT',
                 style: GoogleFonts.inter(
@@ -147,10 +156,10 @@ class _ViewConvertPageState extends State<ViewConvertPage> {
               ),
               const SizedBox(height: 8),
               ElevatedButton(
-                onPressed: () {
+                onPressed: () async {
                   if (_controller.coin != null &&
                       _controller.valueFrom.isNotEmpty) {
-                    _controller.convertTo();
+                    await _controller.convertTo();
                     showDialog(
                         context: context,
                         barrierDismissible: false,
