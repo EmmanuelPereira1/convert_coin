@@ -30,19 +30,6 @@ class _ViewConvertPageState extends State<ViewConvertPage> {
       backgroundColor: const Color(0xFFFFEBC5),
       extendBody: true,
       resizeToAvoidBottomInset: false,
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.transparent,
-        centerTitle: true,
-        title: Hero(
-          tag: 'logo',
-          child: Image.asset(
-            'lib/assets/coin.png',
-            height: 40,
-            width: 40,
-          ),
-        ),
-      ),
       body: Padding(
         padding: const EdgeInsets.all(32.0),
         child: SingleChildScrollView(
