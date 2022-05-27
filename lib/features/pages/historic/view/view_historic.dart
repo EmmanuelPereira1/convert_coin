@@ -80,30 +80,33 @@ class _ViewHistoricState extends State<ViewHistoric> {
                             title: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Container(
-                                  padding: const EdgeInsets.all(4),
-                                  decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(16),
-                                      color: Colors.white,
-                                      border: const Border(
-                                        bottom: BorderSide(
-                                          color: Color(0xFFD97236),
-                                        ),
-                                        top: BorderSide(
-                                          color: Color(0xFFD97236),
-                                        ),
-                                        left: BorderSide(
-                                          color: Color(0xFFD97236),
-                                        ),
-                                        right: BorderSide(
-                                          color: Color(0xFFD97236),
-                                        ),
-                                      )),
-                                  child: Text(
-                                    '$valueFrom',
-                                    style: GoogleFonts.inter(
-                                      fontSize: 14,
-                                      color: const Color(0xFFD97236),
+                                Flexible(
+                                  child: Container(
+                                    padding: const EdgeInsets.all(4),
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(16),
+                                        color: Colors.white,
+                                        border: const Border(
+                                          bottom: BorderSide(
+                                            color: Color(0xFFD97236),
+                                          ),
+                                          top: BorderSide(
+                                            color: Color(0xFFD97236),
+                                          ),
+                                          left: BorderSide(
+                                            color: Color(0xFFD97236),
+                                          ),
+                                          right: BorderSide(
+                                            color: Color(0xFFD97236),
+                                          ),
+                                        )),
+                                    child: Text(
+                                      '$valueFrom',
+                                      style: GoogleFonts.inter(
+                                        fontSize: 14,
+                                        color: const Color(0xFFD97236),
+                                      ),
+                                      overflow: TextOverflow.fade,
                                     ),
                                   ),
                                 ),
@@ -167,32 +170,34 @@ class _ViewHistoricState extends State<ViewHistoric> {
                                     ),
                                   ),
                                 ),
-                                Container(
-                                  padding: const EdgeInsets.all(4),
-                                  decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(16),
-                                      color: Colors.white,
-                                      border: const Border(
-                                        bottom: BorderSide(
-                                          color: Color(0xFFD97236),
-                                        ),
-                                        top: BorderSide(
-                                          color: Color(0xFFD97236),
-                                        ),
-                                        left: BorderSide(
-                                          color: Color(0xFFD97236),
-                                        ),
-                                        right: BorderSide(
-                                          color: Color(0xFFD97236),
-                                        ),
-                                      )),
-                                  child: Text(
-                                    '$valueTo',
-                                    style: GoogleFonts.inter(
-                                      fontSize: 14,
-                                      color: const Color(0xFFD97236),
+                                Flexible(
+                                  child: Container(
+                                    padding: const EdgeInsets.all(4),
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(16),
+                                        color: Colors.white,
+                                        border: const Border(
+                                          bottom: BorderSide(
+                                            color: Color(0xFFD97236),
+                                          ),
+                                          top: BorderSide(
+                                            color: Color(0xFFD97236),
+                                          ),
+                                          left: BorderSide(
+                                            color: Color(0xFFD97236),
+                                          ),
+                                          right: BorderSide(
+                                            color: Color(0xFFD97236),
+                                          ),
+                                        )),
+                                    child: Text(
+                                      '$valueTo',
+                                      style: GoogleFonts.inter(
+                                        fontSize: 14,
+                                        color: const Color(0xFFD97236),
+                                      ),
+                                      overflow: TextOverflow.fade,
                                     ),
-                                    overflow: TextOverflow.ellipsis,
                                   ),
                                 ),
                                 Container(
