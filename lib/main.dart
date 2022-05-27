@@ -6,7 +6,7 @@ import 'app_widget.dart';
 void main() async {
    WidgetsFlutterBinding.ensureInitialized();
    await Firebase.initializeApp(
-     options: DefaultFirebaseOptions.ios,
+     options: DefaultFirebaseOptions.currentPlatform,
    );
   runApp(const AppWidget());
 }
