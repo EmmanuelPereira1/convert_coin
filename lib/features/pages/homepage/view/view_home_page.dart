@@ -24,27 +24,30 @@ class ViewHomePage extends StatelessWidget {
               children: [ViewConvertPage(), const ViewHistoric()]),
         );
       }),
-      bottomNavigationBar: CurvedNavigationBar(
-        index: _controller.bottomSelectedIndex,
-        onTap: (index) {
-          _controller.setBottomSelectedIndex(index);
-          _pageController.animateToPage(index,
-              duration: const Duration(milliseconds: 500), curve: Curves.ease);
-        },
-        items: const [
-          Icon(
-            Icons.attach_money,
-            color: Color(0xFFD97236),
-          ),
-          Icon(
-            Icons.history,
-            color: Color(0xFFD97236),
-          ),
-        ],
-        buttonBackgroundColor: const Color(0xFFFF2C53D),
-        color: const Color(0xFFFF2D16D),
-        backgroundColor: const Color(0xFFFFEBC5),
-      ),
+      bottomNavigationBar: Observer(builder: (_) {
+        return CurvedNavigationBar(
+          index: _controller.bottomSelectedIndex,
+          onTap: (index) {
+            _controller.setBottomSelectedIndex(index);
+            _pageController.animateToPage(index,
+                duration: const Duration(milliseconds: 500),
+                curve: Curves.ease);
+          },
+          items: const [
+            Icon(
+              Icons.attach_money,
+              color: Color(0xFFD97236),
+            ),
+            Icon(
+              Icons.history,
+              color: Color(0xFFD97236),
+            ),
+          ],
+          buttonBackgroundColor: const Color(0xFFFF2C53D),
+          color: const Color(0xFFFF2D16D),
+          backgroundColor: const Color(0xFFFFEBC5),
+        );
+      }),
     ));
   }
 }
