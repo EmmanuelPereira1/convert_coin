@@ -39,6 +39,7 @@ class _ViewHistoricState extends State<ViewHistoric> {
           style: GoogleFonts.inter(
             fontSize: 20,
             color: const Color(0xFFD97236),
+            fontWeight: FontWeight.bold,
           ),
         ),
         elevation: 0,
