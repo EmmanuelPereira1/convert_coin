@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
@@ -54,6 +55,10 @@ class _ViewConvertPageState extends State<ViewConvertPage> {
               ),
               Observer(builder: (_) {
                 return TextField(
+                  keyboardType: TextInputType.number,
+                  inputFormatters: <TextInputFormatter>[
+                    FilteringTextInputFormatter.digitsOnly
+                  ],
                   controller: _textControlller,
                   onChanged: _controller.setValueFrom,
                   style: GoogleFonts.inter(fontSize: 16),
