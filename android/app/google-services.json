@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "388801923437-qcs8b7c3jr08p6mfiga1pfdtsl0sv4v0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.convert_coin",
+            "certificate_hash": "f5a7395ecfed77c43c896053f3d38b63146306c1"
+          }
+        },
+        {
           "client_id": "388801923437-narchhj4413brgmu09cejktgrokmhbe1.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,6 +37,13 @@
             {
               "client_id": "388801923437-narchhj4413brgmu09cejktgrokmhbe1.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "388801923437-hogv814h224trpuh2cap68rienc6te3l.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.convertCoin"
+              }
             }
           ]
         }
