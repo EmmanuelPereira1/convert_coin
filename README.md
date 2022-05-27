@@ -30,10 +30,10 @@ This project was developed using:
     - Google Sign In
     - Cloud Firestore
     - Curved Navigation Bar
-    - Google_fonts
+    - Google Fonts
     - Lottie
-    - build_runner
-    - mobx_codegen
+    - Build Runner
+    - Mobx Codegen
 
 To download this project and make changes, you can use the script bellow:
 
