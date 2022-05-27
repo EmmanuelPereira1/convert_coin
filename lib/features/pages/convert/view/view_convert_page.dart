@@ -63,11 +63,14 @@ class _ViewConvertPageState extends State<ViewConvertPage> {
                   onChanged: _controller.setValueFrom,
                   style: GoogleFonts.inter(fontSize: 16),
                   decoration: InputDecoration(
+                    focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(25),
+                        borderSide: BorderSide(color: Color(0xFFD97236))),
+                    fillColor: Colors.white,
+                    filled: true,
                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(15),
-                      borderSide: const BorderSide(
-                        color: Color.fromRGBO(217, 114, 54, 1),
-                      ),
+                      borderSide: const BorderSide(color: Colors.transparent),
+                      borderRadius: BorderRadius.circular(25),
                     ),
                   ),
                 );
