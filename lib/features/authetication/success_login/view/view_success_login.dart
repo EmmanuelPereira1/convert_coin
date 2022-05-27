@@ -20,6 +20,7 @@ final _controller = ControllerSuccessLogin();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xFFFFEBC5),
       body: Center(
         child: Observer(builder: (_) {
           _controller.checkTokenValid(context);
