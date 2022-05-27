@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:convert_coin/features/authetication/auth_page/auth_page.dart';
 import 'package:convert_coin/features/pages/historic/controller/historic_controller.dart';
 import 'package:convert_coin/features/authetication/select_page/select_page.dart';
@@ -79,7 +80,7 @@ class _ViewHistoricState extends State<ViewHistoric> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Container(
-                                  padding: const EdgeInsets.all(8),
+                                  padding: const EdgeInsets.all(4),
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(16),
                                       color: Colors.white,
@@ -106,7 +107,7 @@ class _ViewHistoricState extends State<ViewHistoric> {
                                   ),
                                 ),
                                 Container(
-                                  padding: const EdgeInsets.all(8),
+                                  padding: const EdgeInsets.all(4),
                                   height: 50,
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(16),
@@ -137,11 +138,12 @@ class _ViewHistoricState extends State<ViewHistoric> {
                                       ClipRRect(
                                         borderRadius: BorderRadius.circular(16),
                                         child: Container(
-                                          padding: const EdgeInsets.all(8),
+                                          padding: const EdgeInsets.only(
+                                              right: 4, left: 4),
                                           color: Colors.white,
                                           child: const Icon(Icons.loop_outlined,
                                               color: Color(0xFFD97236),
-                                              size: 30),
+                                              size: 25),
                                         ),
                                       ),
                                       Text(
@@ -155,7 +157,7 @@ class _ViewHistoricState extends State<ViewHistoric> {
                                   ),
                                 ),
                                 Container(
-                                  padding: const EdgeInsets.all(8),
+                                  padding: const EdgeInsets.all(4),
                                   child: Text(
                                     '=',
                                     style: GoogleFonts.inter(
@@ -165,7 +167,7 @@ class _ViewHistoricState extends State<ViewHistoric> {
                                   ),
                                 ),
                                 Container(
-                                  padding: const EdgeInsets.all(8),
+                                  padding: const EdgeInsets.all(4),
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(16),
                                       color: Colors.white,
@@ -190,6 +192,117 @@ class _ViewHistoricState extends State<ViewHistoric> {
                                       color: const Color(0xFFD97236),
                                     ),
                                     overflow: TextOverflow.ellipsis,
+                                  ),
+                                ),
+                                Container(
+                                  padding: const EdgeInsets.all(4),
+                                  child: IconButton(
+                                    onPressed: () {
+                                      showDialog(
+                                          context: context,
+                                          barrierDismissible: false,
+                                          builder: (BuildContext context) {
+                                            return AlertDialog(
+                                              title: Text(
+                                                'Deleting from Firebase',
+                                                style: GoogleFonts.inter(
+                                                  fontSize: 20,
+                                                  color:
+                                                      const Color(0xFFD97236),
+                                                  fontWeight: FontWeight.bold,
+                                                ),
+                                              ),
+                                              content: Text(
+                                                'Would you like to delete this conversion?',
+                                                style: GoogleFonts.inter(
+                                                  fontSize: 16,
+                                                  color:
+                                                      const Color(0xFFD97236),
+                                                ),
+                                              ),
+                                              backgroundColor:
+                                                  const Color(0xFFFFEBC5),
+                                              shape: RoundedRectangleBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          16)),
+                                              actions: [
+                                                Observer(builder: (_) {
+                                                  return ElevatedButton(
+                                                    onPressed: () async {
+                                                      await FirebaseFirestore
+                                                          .instance
+                                                          .collection('users')
+                                                          .doc(FirebaseAuth
+                                                              .instance
+                                                              .currentUser!
+                                                              .uid)
+                                                          .update({
+                                                        "history": FieldValue
+                                                            .arrayRemove(
+                                                                [history])
+                                                      });
+                                                      _controller
+                                                          .fetchHistoric();
+                                                      Navigator.pop(context);
+                                                    },
+                                                    child: Text(
+                                                      'Yes',
+                                                      style: GoogleFonts.inter(
+                                                        fontSize: 20,
+                                                        color: const Color(
+                                                            0xFFD97236),
+                                                      ),
+                                                    ),
+                                                    style: ButtonStyle(
+                                                      shape: MaterialStateProperty.all<
+                                                              RoundedRectangleBorder>(
+                                                          RoundedRectangleBorder(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(16),
+                                                      )),
+                                                      backgroundColor:
+                                                          MaterialStateProperty
+                                                              .all<Color>(
+                                                        const Color(0xFFF2D16D),
+                                                      ),
+                                                    ),
+                                                  );
+                                                }),
+                                                ElevatedButton(
+                                                  onPressed: () {
+                                                    Navigator.pop(context);
+                                                  },
+                                                  child: Text(
+                                                    'No',
+                                                    style: GoogleFonts.inter(
+                                                      fontSize: 20,
+                                                      color: const Color(
+                                                          0xFFD97236),
+                                                    ),
+                                                  ),
+                                                  style: ButtonStyle(
+                                                    shape: MaterialStateProperty
+                                                        .all<RoundedRectangleBorder>(
+                                                            RoundedRectangleBorder(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              16),
+                                                    )),
+                                                    backgroundColor:
+                                                        MaterialStateProperty
+                                                            .all<Color>(
+                                                      const Color(0xFFF2D16D),
+                                                    ),
+                                                  ),
+                                                )
+                                              ],
+                                            );
+                                          });
+                                    },
+                                    icon: Icon(Icons.delete_outlined,
+                                        color: Colors.red),
                                   ),
                                 ),
                               ],
