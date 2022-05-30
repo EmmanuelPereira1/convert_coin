@@ -49,6 +49,8 @@ dependencies:
 
 
 dev_dependencies:
+  build_runner: ^2.1.11
+  mobx_codegen: ^2.0.7
   flutter_test:
     sdk: flutter
 
@@ -66,8 +68,7 @@ flutter_icons:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
-  build_runner: ^2.1.11
-  mobx_codegen: ^2.0.7
+  
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

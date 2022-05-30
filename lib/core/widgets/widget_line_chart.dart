@@ -10,9 +10,10 @@ class WidgetLineChart extends StatelessWidget {
   Widget build(BuildContext context) => LineChart(
       LineChartData(
         minX: 0,
-        maxX: 11,
+        maxX: 10,
         minY: 0,
         maxY: 6,
+        
         gridData: FlGridData(
         show: true,
         getDrawingHorizontalLine: (value) {
@@ -41,7 +42,9 @@ class WidgetLineChart extends StatelessWidget {
         lineBarsData: [
           LineChartBarData(
             spots: [
-              FlSpot(0 , 3)
+              FlSpot(0 , 3),
+              FlSpot(1, 5),
+              FlSpot(2, 2)
             ],
             isCurved: true,
             color: Color(0xFFD97236),
