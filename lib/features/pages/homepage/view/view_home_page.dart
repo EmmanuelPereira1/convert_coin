@@ -18,6 +18,7 @@ class ViewHomePage extends StatelessWidget {
       resizeToAvoidBottomInset: false,
       body: Observer(builder: (_) {
         return SafeArea(
+          top: false,
           child: PageView(
               controller: _pageController,
               onPageChanged: _controller.setBottomSelectedIndex,

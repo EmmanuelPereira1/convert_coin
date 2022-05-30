@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:convert_coin/features/authetication/animate_logout/view/view_animate_logout.dart';
 import 'package:convert_coin/features/authetication/login/view/view_login.dart';
 import 'package:convert_coin/features/pages/historic/controller/historic_controller.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -46,9 +47,8 @@ class _ViewHistoricState extends State<ViewHistoric> {
         actions: [
           IconButton(
               onPressed: () {
-                FirebaseAuth.instance.signOut();
-                Navigator.of(context).pushReplacement(MaterialPageRoute(
-                    builder: (context) => const ViewLogin()));
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => const ViewAnimateLogout()));
               },
               icon: const Icon(
                 Icons.logout_outlined,
