@@ -24,7 +24,8 @@ final _controller = ControllerSuccessRegister();
       body: Center(
         child: Observer(builder: (_) {
           _controller.checkTokenValid(context);
-          return Lottie.network('https://assets6.lottiefiles.com/packages/lf20_pqnfmone.json');
+          return Lottie.network('https://assets6.lottiefiles.com/packages/lf20_pqnfmone.json',
+          repeat: false);
         }),
       ),
     );
