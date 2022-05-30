@@ -45,7 +45,24 @@ class _WidgetLineChartState extends State<WidgetLineChart> {
         maxX: 25,
         minY: miny,
         maxY: maxy,
-
+        titlesData: FlTitlesData(
+            show: true,
+            leftTitles: AxisTitles(
+              sideTitles: SideTitles(
+                showTitles: true,
+                reservedSize: 32,
+              ),
+            ),
+            rightTitles: AxisTitles(
+              drawBehindEverything: false,
+            ),
+            topTitles: AxisTitles(
+              drawBehindEverything: false,
+            ),
+            bottomTitles: AxisTitles(
+              drawBehindEverything: false,
+            ),
+          ),
         gridData: FlGridData(
             show: true,
             getDrawingHorizontalLine: (value) {
