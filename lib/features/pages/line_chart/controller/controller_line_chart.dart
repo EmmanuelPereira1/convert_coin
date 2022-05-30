@@ -17,6 +17,9 @@ abstract class _ControllerLineChartBase with Store {
   @observable
   String coinFrom = '';
 
+  @observable
+  Resource statusCoinHistory = Resource.loading();
+
   @action
   setCoinFrom(value) => coinFrom = value;
 
@@ -36,14 +39,18 @@ abstract class _ControllerLineChartBase with Store {
   @action
   Future<Resource<void, String>> getCoinHistory(String coin) async {
     final url = 'https://economia.awesomeapi.com.br/json/daily/$coin/25';
+    statusCoinHistory = Resource.loading();
     try {
       final response = await Dio().get(url);
       coinHistory = (response.data as List)
           .map((el) => CoinHistory.fromJson(el))
           .toList()
           .asObservable();
+      Future.delayed(Duration(seconds: 4));
+      statusCoinHistory = Resource.success();
       return Resource.success();
     } on DioError catch (e) {
+      statusCoinHistory = Resource.failed();
       return Resource.failed(error: e.message);
     }
   }

@@ -57,6 +57,22 @@ mixin _$ControllerLineChart on _ControllerLineChartBase, Store {
     });
   }
 
+  late final _$statusCoinHistoryAtom = Atom(
+      name: '_ControllerLineChartBase.statusCoinHistory', context: context);
+
+  @override
+  Resource<dynamic, dynamic> get statusCoinHistory {
+    _$statusCoinHistoryAtom.reportRead();
+    return super.statusCoinHistory;
+  }
+
+  @override
+  set statusCoinHistory(Resource<dynamic, dynamic> value) {
+    _$statusCoinHistoryAtom.reportWrite(value, super.statusCoinHistory, () {
+      super.statusCoinHistory = value;
+    });
+  }
+
   late final _$getCoinsAsyncAction =
       AsyncAction('_ControllerLineChartBase.getCoins', context: context);
 
@@ -92,7 +108,8 @@ mixin _$ControllerLineChart on _ControllerLineChartBase, Store {
     return '''
 coins: ${coins},
 coinHistory: ${coinHistory},
-coinFrom: ${coinFrom}
+coinFrom: ${coinFrom},
+statusCoinHistory: ${statusCoinHistory}
     ''';
   }
 }

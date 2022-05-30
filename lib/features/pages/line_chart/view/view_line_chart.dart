@@ -3,6 +3,9 @@ import 'package:convert_coin/features/pages/line_chart/controller/controller_lin
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:lottie/lottie.dart';
+
+import '../../../../core/generic/resource.dart';
 
 class ViewLineChart extends StatefulWidget {
   const ViewLineChart({Key? key}) : super(key: key);
@@ -16,8 +19,9 @@ class _ViewLineChartState extends State<ViewLineChart> {
 
   @override
   void initState() {
-    _controller.getCoins();
-    _controller.getCoinHistory(_controller.coinFrom);
+    _controller
+        .getCoins()
+        .whenComplete(() => _controller.getCoinHistory(_controller.coinFrom));
     super.initState();
   }
 
@@ -48,7 +52,7 @@ class _ViewLineChartState extends State<ViewLineChart> {
                   ),
                   onChanged: (value) async {
                     _controller.setCoinFrom(value);
-                    _controller.getCoinHistory(_controller.coinFrom);
+                    await _controller.getCoinHistory(_controller.coinFrom);
                   },
                   items:
                       _controller.coins.map<DropdownMenuItem<String>>((value) {
@@ -64,7 +68,9 @@ class _ViewLineChartState extends State<ViewLineChart> {
                 width: 600,
                 height: 600,
                 child: Observer(builder: (_) {
-                  return WidgetLineChart(coinHistory: _controller.coinHistory);
+                  return _controller.statusCoinHistory.status == Status.success
+                      ? WidgetLineChart(coinHistory: _controller.coinHistory)
+                      : Container();
                 }),
               ),
             ],
