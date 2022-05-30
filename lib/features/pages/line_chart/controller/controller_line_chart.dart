@@ -46,7 +46,7 @@ abstract class _ControllerLineChartBase with Store {
           .map((el) => CoinHistory.fromJson(el))
           .toList()
           .asObservable();
-      Future.delayed(Duration(seconds: 4));
+      await Future.delayed(Duration(seconds: 4));
       statusCoinHistory = Resource.success();
       return Resource.success();
     } on DioError catch (e) {
