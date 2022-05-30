@@ -65,8 +65,8 @@ class _ViewLineChartState extends State<ViewLineChart> {
               }),
               Container(
                 alignment: Alignment.center,
-                width: 600,
-                height: 600,
+                width: 300,
+                height: 400,
                 child: Observer(builder: (_) {
                   return _controller.statusCoinHistory.status == Status.success
                       ? WidgetLineChart(coinHistory: _controller.coinHistory)
