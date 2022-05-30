@@ -27,15 +27,20 @@ class _ViewLineChartState extends State<ViewLineChart> {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-        extendBody: true,
         backgroundColor: Color(0xFFFFEBC5),
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Observer(builder: (_) {
-                return DropdownButton<String>(
+                return _controller.statusCoinHistory.status == Status.loading
+                    ? Lottie.network(
+                        'https://assets5.lottiefiles.com/packages/lf20_wybs9m5c.json',
+                        width: 300,
+                        height: 300,
+                        
+                        ) :
+                DropdownButton<String>(
                   value: _controller.coinFrom,
                   icon: const Icon(
                     Icons.arrow_downward,
@@ -63,16 +68,15 @@ class _ViewLineChartState extends State<ViewLineChart> {
                   }).toList(),
                 );
               }),
-              Container(
-                alignment: Alignment.center,
-                width: 300,
-                height: 400,
-                child: Observer(builder: (_) {
-                  return _controller.statusCoinHistory.status == Status.success
-                      ? WidgetLineChart(coinHistory: _controller.coinHistory)
-                      : Container();
-                }),
-              ),
+              Observer(builder: (_) {
+                return _controller.statusCoinHistory.status == Status.success
+                    ? Container(
+                      alignment: Alignment.center,
+                      width: 300,
+                      height: 400,
+                      child: WidgetLineChart(coinHistory: _controller.coinHistory))
+                    : Container();
+              }),
             ],
           ),
         ),
