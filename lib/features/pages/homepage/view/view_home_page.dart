@@ -1,3 +1,4 @@
+import 'package:convert_coin/features/pages/line_chart/view/view_line_chart.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
@@ -22,7 +23,11 @@ class ViewHomePage extends StatelessWidget {
           child: PageView(
               controller: _pageController,
               onPageChanged: _controller.setBottomSelectedIndex,
-              children: [ViewConvertPage(), const ViewHistoric()]),
+              children: [
+              ViewConvertPage(),
+              const ViewHistoric(),
+              const ViewLineChart()
+              ]),
         );
       }),
       bottomNavigationBar: Observer(builder: (_) {
@@ -43,6 +48,10 @@ class ViewHomePage extends StatelessWidget {
               Icons.history,
               color: Color(0xFFD97236),
             ),
+              Icon(
+                Icons.graphic_eq,
+                color: Color(0xFFD97236),
+              )
           ],
           buttonBackgroundColor: const Color(0xFFFF2C53D),
           color: const Color(0xFFFF2D16D),
