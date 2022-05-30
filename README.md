@@ -9,11 +9,12 @@ As you can see on the images bellow, you need to login on our app. You can also 
 <img src="./screenshots/screenshot2.png" width="250">
 </div>
 
-When you login to our app, the screenshots illustrated on the images bellow is shown. The first screen is a page where you type a number to convert to a different coin. The second screen shows different convertions made by you in the past. As you can see, you have the option to delete the convertions as well, it can be done if you click in the trash can positioned on the right corner of each convertion.
+When you login to our app, the screenshots illustrated on the images bellow is shown. The first screen is a page where you type a number to convert to a different coin. The second screen shows different convertions made by you in the past. As you can see, you have the option to delete the convertions as well, it can be done if you click in the trash can positioned on the right corner of each convertion. The third screen shows a graphic of prices of a certain coin in BRL.
 
 <div style="display: flex;">
 <img src="./screenshots/screenshot3.png" width="250">&nbsp;&nbsp;
-<img src="./screenshots/screenshot4.png" width="250">
+<img src="./screenshots/screenshot4.png" width="250">&nbsp;&nbsp;
+<img src="./screenshots/screenshot5.png" width="250">
 </div>
 
 ## How to get its code
