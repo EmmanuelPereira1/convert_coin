@@ -2,8 +2,6 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 
-import '../models/coin_history_model.dart';
-
 class WidgetLineChart extends StatefulWidget {
   final ObservableList coinHistory;
   const WidgetLineChart({Key? key, required this.coinHistory})

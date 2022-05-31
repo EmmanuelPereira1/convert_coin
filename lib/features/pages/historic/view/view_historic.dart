@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:convert_coin/features/authetication/animate_logout/view/view_animate_logout.dart';
-import 'package:convert_coin/features/authetication/login/view/view_login.dart';
 import 'package:convert_coin/features/pages/historic/controller/historic_controller.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';

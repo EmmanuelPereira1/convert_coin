@@ -1,8 +1,6 @@
 import 'package:convert_coin/features/authetication/login/view/view_login.dart';
 import 'package:convert_coin/features/pages/homepage/view/view_home_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
 
 

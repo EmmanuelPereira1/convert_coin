@@ -1,11 +1,9 @@
 import 'package:convert_coin/core/generic/resource.dart';
-import 'package:convert_coin/core/widgets/success_show_dialog.dart';
 import 'package:convert_coin/features/authetication/register/controller/register_controller.dart';
 import 'package:convert_coin/features/authetication/success_register/view/view_success_register.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import '../../../../core/widgets/failed_show_dialog.dart';
-import '../../../pages/homepage/view/view_home_page.dart';
 
 class ViewRegister extends StatelessWidget {
   ViewRegister({Key? key}) : super(key: key);

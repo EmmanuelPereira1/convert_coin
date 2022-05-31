@@ -1,7 +1,5 @@
 import 'package:convert_coin/features/authetication/animate_logout/controller/controller_animate_logout.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:lottie/lottie.dart';
 

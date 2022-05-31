@@ -1,5 +1,4 @@
 import 'package:convert_coin/core/generic/resource.dart';
-import 'package:convert_coin/features/authetication/auth_page/auth_page.dart';
 import 'package:convert_coin/features/authetication/login/controller/login_controller.dart';
 import 'package:convert_coin/features/authetication/register/view/view_register.dart';
 import 'package:convert_coin/features/authetication/success_login/view/view_success_login.dart';
