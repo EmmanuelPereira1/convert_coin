@@ -27,7 +27,6 @@ This project was developed using:
     - Mobx
     - DIO
     - Firebase Authentication
-    - Google Sign In
     - Cloud Firestore
     - Curved Navigation Bar
     - Google Fonts
